@@ -6,8 +6,8 @@ from time import sleep
 from prometheus_client import start_http_server, Gauge
 
 # Prometheus variables
-RESPONSE_CODE = Gauge('response_code', 'Response Status code', ["site"])
-RESPONSE_TIME = Gauge('response_time', 'Response time in seconds', ["site"])
+RESPONSE_CODE = Gauge('website_monitor_response_code', 'Response Status code', ["site"])
+RESPONSE_TIME = Gauge('website_monitor_response_time', 'Response time in seconds', ["site"])
 
 # Check if the environment variable 'SITES' is defined correctly as an array of URLs
 try:
