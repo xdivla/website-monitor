@@ -6,12 +6,14 @@ The monitor exposes both prometheus metrics on port 8888 with the help of the pr
 ### Name of prometheus metrics:
 
 website_monitor_response_time
+
 website_monitor_response_code
 
 
 ### Docker image: 
 
 divla/website-monitor
+
 
 
 ## Features
@@ -23,6 +25,7 @@ divla/website-monitor
 
 
 ## Instructions
+
 
 ### Required
 
