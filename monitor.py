@@ -39,8 +39,9 @@ def monitor():
 			RESPONSE_CODE.labels(site=site).set(res.status_code)
 		sleep(int(request_freq))
 
+# Starting the server
 if __name__ == '__main__':
     start_http_server(8888)
     monitor()
-    print('Website monitoring server started...OK')
-    print('Starting metrics server on port 8888...OK')
+    print('Websites monitoring started...OK')
+    print('Starting prometheus metrics HTTP server on port 8888...OK')

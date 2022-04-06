@@ -1,8 +1,9 @@
-# site-monitor
+# Python Website-monitor
 
-A simple Python3 website response time and response code monitor. 
+A simple Python3 website response time and response code monitor.
 The monitor exposes both prometheus metrics on port 8888 with the help of the prometheus_client library
 
+Available as docker image: divla/website-monitor
 
 
 ## Features
