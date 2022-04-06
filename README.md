@@ -13,3 +13,6 @@ Enjoy :)
 Set the environment variable SITES as a JSON array:
 
 SITES='["https://url1", "https://url2", "https://url3"]'
+
+
+You can filter through both metrics using the configured label "site"
