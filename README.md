@@ -31,7 +31,7 @@ divla/website-monitor
 
 Set the environment variable SITES as a JSON array of websites
 
-Example: SITES='["https://url1", "https://url2", "https://url3"]'
+Example: SITES = '["https://url1", "https://url2", "https://url3"]'
 
 
 ### Optional
