@@ -34,7 +34,6 @@ def monitor():
 				print('The site URL ' + site + ' could not be reached or does not exist')
 				continue
 
-			print(res.elapsed.total_seconds())
 			RESPONSE_TIME.labels(site=site).set(res.elapsed.total_seconds())
 			RESPONSE_CODE.labels(site=site).set(res.status_code)
 		sleep(int(request_freq))
@@ -43,5 +42,5 @@ def monitor():
 if __name__ == '__main__':
     start_http_server(8888)
     monitor()
-    print('Websites monitoring started...OK')
+    print('Website monitoring started...OK')
     print('Starting prometheus metrics HTTP server on port 8888...OK')
