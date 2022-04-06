@@ -1,7 +1,6 @@
 # Libraries
 import os
 import json
-import asyncio
 import requests
 from time import sleep
 from prometheus_client import start_http_server, Gauge
@@ -17,6 +16,14 @@ except:
  	print('Please set the environment variable SITES as an array of URLs: ["https://some_url", "https://some_other_url"]')
  	quit()
 
+# 'REQUEST_FREQUENCY' environment variable with default value: 30 and illegal value ''
+request_freq = os.environ.get('REQUEST_FREQUENCY', 30)
+
+if (request_freq == ''):
+	print('The environment variable REQUEST_FREQUENCY cannot be an empty string.')
+	quit()
+
+
 # Defining the event
 def monitor():
 	while True:
@@ -27,10 +34,13 @@ def monitor():
 				print('The site URL ' + site + ' could not be reached or does not exist')
 				continue
 
+			print(res.elapsed.total_seconds())
 			RESPONSE_TIME.labels(site=site).set(res.elapsed.total_seconds())
 			RESPONSE_CODE.labels(site=site).set(res.status_code)
-		sleep(5)
+		sleep(int(request_freq))
 
 if __name__ == '__main__':
     start_http_server(8888)
     monitor()
+    print('Website monitoring server started...OK')
+    print('Starting metrics server on port 8888...OK')

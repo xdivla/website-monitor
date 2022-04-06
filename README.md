@@ -3,16 +3,23 @@
 A simple Python3 website response time and response code monitor. 
 The monitor exposes both prometheus metrics on port 8888 with the help of the prometheus_client library
 
-You can add one or as many websites as you like.
 
-Enjoy :)
+
+## Features
+
+- You can add one or as many websites as you like.
+
+- You can filter through both metrics using the prometheus label "site"
+
 
 
 ## Instructions
 
-Set the environment variable SITES as a JSON array:
+Required: Set the environment variable SITES as a JSON array of websites
 
-SITES='["https://url1", "https://url2", "https://url3"]'
+Example: SITES='["https://url1", "https://url2", "https://url3"]'
 
 
-You can filter through both metrics using the configured label "site"
+Optional: Set the environment variable REQUEST_FREQUENCY for request frequency in seconds (default: 30)
+
+Example: REQUEST_FREQUENCY = 60
