@@ -29,7 +29,7 @@ def monitor():
 	while True:
 		for site in sites:
 			try:
-				res = requests.get(site)
+				res = requests.get(site, timeout=10)
 			except:
 				print('The site URL ' + site + ' could not be reached or does not exist')
 				continue
