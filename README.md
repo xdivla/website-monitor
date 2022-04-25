@@ -20,7 +20,7 @@ divla/website-monitor
 
 - You can add one or as many websites as you like.
 
-- You can filter through both metrics using the prometheus label "site"
+- You can filter through both metrics using the prometheus labels "site" and "code"
 
 
 
