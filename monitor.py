@@ -32,6 +32,7 @@ def monitor():
 				res = requests.get(site, timeout=10)
 			except:
 				print('The site URL ' + site + ' could not be reached or does not exist')
+				RESPONSE_TIME.labels(site=site).set(10)
 				continue
 
 			RESPONSE_TIME.labels(site=site).set(res.elapsed.total_seconds())
