@@ -1,7 +1,7 @@
 # Python3 Website Monitor
 
 A simple website response time and response code monitor in python.
-The monitor exposes both prometheus metrics on port 8888 with the help of the prometheus_client library
+The monitor exposes prometheus metrics on port 8888 with the help of the prometheus_client library
 
 ### Name of the prometheus metrics:
 
