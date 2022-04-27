@@ -1,9 +1,9 @@
-# Python Website Monitor
+# Python3 Website Monitor
 
-A simple Python3 website response time and response code monitor.
+A simple website response time and response code monitor in python.
 The monitor exposes both prometheus metrics on port 8888 with the help of the prometheus_client library
 
-### Name of prometheus metrics:
+### Name of the prometheus metrics:
 
 website_monitor_response_time
 
@@ -18,9 +18,16 @@ divla/website-monitor
 
 ## Features
 
-- You can add one or as many websites as you like.
+- Add one or as many websites as you like.
 
-- You can filter through both metrics using the prometheus labels "site" and "code"
+- Adjustable frequency of sent requests
+
+- If the response takes more than 10 seconds, the connection will timout.
+
+- You can filter through metrics using labels:
+    - 'site': Website URL (example: 'https://divla.eu')
+    - 'status': 'online' or 'offline'
+    - 'code': HTTP response status code (example: '200')
 
 
 
@@ -29,13 +36,13 @@ divla/website-monitor
 
 ### Required
 
-Set the environment variable SITES as a JSON array of websites
+Set the environment variable SITES as a JSON array of website URLs, for example:
 
-Example: SITES = '["https://url1", "https://url2", "https://url3"]'
+SITES = '["https://url1", "https://url2", "https://url3"]'
 
 
 ### Optional
 
-Set the environment variable REQUEST_FREQUENCY for request frequency in seconds (default: 30)
+Set the environment variable REQUEST_FREQUENCY for adjusting the frequency of sent requests in seconds (default: 30), for example:
 
-Example: REQUEST_FREQUENCY = 60
+REQUEST_FREQUENCY = 60
