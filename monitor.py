@@ -7,7 +7,7 @@ from prometheus_client import start_http_server, Gauge
 
 # Prometheus variables
 RESPONSE_CODE = Gauge('website_monitor_response_code', 'Response Status code', ["site", "code"])
-RESPONSE_TIME = Gauge('website_monitor_response_time', 'Response time in seconds', ["site"])
+RESPONSE_TIME = Gauge('website_monitor_response_time', 'Response time in seconds', ["site", "status"])
 
 # Check if the environment variable 'SITES' is defined correctly as an array of URLs
 try:
@@ -32,10 +32,10 @@ def monitor():
 				res = requests.get(site, timeout=10)
 			except:
 				print('The site URL ' + site + ' could not be reached or does not exist')
-				RESPONSE_TIME.labels(site=site).set(10)
+				RESPONSE_TIME.labels(site=site, status='offline').set(10)
 				continue
 
-			RESPONSE_TIME.labels(site=site).set(res.elapsed.total_seconds())
+			RESPONSE_TIME.labels(site=site, status='online').set(res.elapsed.total_seconds())
 			RESPONSE_CODE.labels(site=site, code=res.status_code).set(res.status_code)
 		sleep(int(request_freq))
 
