@@ -1,19 +1,18 @@
-# Python3 Website Monitor
+# Python3 Endpoint/Website Monitor
 
-A simple website response time and response code monitor in python.
+A simple endpoint response time, response code and SSL certificate expiry monitor in Python.
 The monitor exposes prometheus metrics on port 8888 with the help of the prometheus_client library
 
-### Name of the prometheus metrics:
 
-website_monitor_response_time
+### Name of the prometheus metrics with 'site' label:
 
-website_monitor_response_code
+endpoint_monitor_response_time
 
+endpoint_monitor_response_code
 
-### Docker image: 
+endpoint_monitor_response_status
 
-divla/website-monitor
-
+endpoint_monitor_ssl_cert_expiry
 
 
 ## Features
@@ -24,15 +23,10 @@ divla/website-monitor
 
 - If the response takes more than 10 seconds, the connection will timout.
 
-- You can filter through metrics using labels:
-    - 'site': Website URL (example: 'https://divla.eu')
-    - 'status': 'online' or 'offline'
-    - 'code': HTTP response status code (example: '200')
-
+- Checks SSL certificate expiry and 
 
 
 ## Instructions
-
 
 ### Required
 
