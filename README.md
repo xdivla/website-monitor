@@ -23,7 +23,7 @@ endpoint_monitor_ssl_cert_expiry
 
 - If the response takes more than 10 seconds, the connection will timout.
 
-- Checks SSL certificate expiry and 
+- Checks SSL certificate expiry date
 
 
 ## Instructions
